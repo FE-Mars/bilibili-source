@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  height: 100vh;
+  padding-top: 160px;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #fff 0 70%, #333 50% 100%);
+}
+
+.card {
+  width: 400px;
+  height: 250px;
+  border-radius: 12px;
+  background-image: url(img.jpg);
+  background-size: cover;
+  box-shadow: 0 0 50px rgba(0, 0, 0, .4);
+  transform: 
+    perspective(900px) 
+    rotateX(60deg) 
+    scale(.7);
+  transition: .5s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: rotateX(0) scale(1);
+}
