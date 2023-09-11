@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  column-gap: 20px;
+  width: 800px;
+  height: 600px;
+  transition: .5s;
+}
+
+.container .image-wrap{
+  position: relative;
+  background: var(--img);
+  background-position: center;
+  background-size: cover;
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(0) brightness(1.15);
+}
+
+.container:hover .image-wrap{
+  filter: grayscale(1);
+}
+
+.container .image-wrap:hover {
+  filter: grayscale(0) brightness(1.15);
+}
+
+.container:has(.image-wrap:nth-child(1):hover) {
+  grid-template-columns: 3fr 1fr 1fr 1fr 1fr;
+}
+.container:has(.image-wrap:nth-child(2):hover) {
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+}
+.container:has(.image-wrap:nth-child(3):hover) {
+  grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+}
+.container:has(.image-wrap:nth-child(4):hover) {
+  grid-template-columns: 1fr 1fr 1fr 3fr 1fr;
+}
+.container:has(.image-wrap:nth-child(5):hover) {
+  grid-template-columns: 1fr 1fr 1fr 1fr 3fr;
+}
+
+.container .image-wrap::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#000, transparent, transparent, transparent, #000);
+}
+
+.container .image-wrap:nth-child(even){
+  transform: translateY(30px);
+}
+
+.container .image-wrap:nth-child(odd){
+  transform: translateY(-30px);
+}
+
+.container .image-wrap::after{
+  content: attr(data-text );
+  position: absolute;
+  bottom: -100px;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 5px 10px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  min-width: 100px;
+  text-align: center;
+  opacity: 0;
+  transition: .5s;
+  transition-delay: 0;
+  -webkit-box-reflect: below 2px linear-gradient(transparent, #0004);
+}
+
+.container .image-wrap:hover::after {
+  bottom: -50px;
+  opacity: 1;
+  transition-delay: .25s;
+}
