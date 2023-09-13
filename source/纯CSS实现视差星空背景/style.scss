@@ -1,0 +1,74 @@
+html {
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);  // 背景色
+  overflow: hidden;
+}
+
+// 定义星空的大小
+$sky-size: 2000;
+
+// 我们定义一个scss函数，用于生成指定数量的星星
+@function generate-star($num) {
+  $value: '#{random($sky-size)}px #{random($sky-size)}px #fff';  //通过random函数随机生产星空内的星星
+
+  //通过循环逻辑，生成指定数量的星星
+  @for $i from 2 through $num {
+    $value: '#{$value}, #{random($sky-size)}px #{random($sky-size)}px #fff';  //每次循环都在加上之前生成的星星
+  }
+  // 去除返回值中的引号
+  @return unquote($string: $value);
+}
+
+.star {
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  box-shadow: generate-star(700);   //生成700个星星
+  animation: animate 80s linear infinite;
+}
+
+.medium-star {
+  width: 2px;
+  height: 2px;
+  background-color: transparent;
+  box-shadow: generate-star(400);   //生成400个星星
+  animation: animate 120s linear infinite;
+}
+
+.big-star {
+  width: 3px;
+  height: 3px;
+  background-color: transparent;
+  box-shadow: generate-star(100);   //生成100个星星
+  animation: animate 150s linear infinite;   //大星星动的最慢
+}
+
+//现在我们生成了 三种大小的星星，接着我们让他动起来
+
+@keyframes animate {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(unquote('-#{$sky-size}px'));
+  }
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%);
+  font-weight: 300;
+  font-size: 50px;
+  letter-spacing: 10px;
+
+  span {
+    display: block;
+    background: linear-gradient(#fff, #38495a);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
