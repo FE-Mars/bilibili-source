@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #333;
+}
+
+//我们可以通过修改$turns和$count的值来实现不同的动画效果
+$time: 7s;  //动画时长
+$turns: 6;  //旋转角度
+$count: 51;  //共多少个圆
+
+
+.rainbow-loading {
+  position: relative;
+
+  .circle {
+    position: absolute;
+    // 算出每个圆的延迟时间
+    $delay: calc(#{$time / $count} * -1 * var(--i));
+    //计算出每一个圆的旋转角度
+    rotate: calc(#{$turns / $count } * var(--i) * 1turn);   
+    animation: circle #{$time} #{$delay} linear infinite;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      // 根据不同角度设置不同颜色
+      background-color: hsl(calc(1turn / #{$count / $turns} * var(--i)), 100%, 70%);
+      transform-origin: center center;
+      box-sizing: border-box;
+      animation: circleSize #{$time} #{$delay} linear infinite;
+    }
+
+    &:nth-child(n + #{$count + 1} ) {   //隐藏多余的circle
+      display: none;
+    }
+  }
+}
+
+@keyframes circle {
+	from { transform: translate(0, 40px); }
+	to { transform: translate(0, 160px); }
+}
+
+@keyframes circleSize {
+	0%, 100% { transform: scale(0); }
+	25%, 50% { transform: scale(1); }
+}
