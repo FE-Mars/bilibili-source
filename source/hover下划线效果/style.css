@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+a {
+  position: relative;
+  font-size: 40px;
+  color: #333;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  height: 6px;
+  width: 0;
+  background: #4070f4;
+  border-radius: 50px;
+  transition: width .3s ease;
+}
+
+a:hover:before {
+  width: 100%;
+}

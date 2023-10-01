@@ -1,0 +1,34 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #eff0f4;
+}
+
+.water {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  box-shadow: inset 20px 20px 20px rgba(0, 0, 0, 0.05),
+  25px 35px 20px rgba(0, 0, 0, 0.05),
+  25px 30px 30px rgba(0, 0, 0, 0.05),
+  inset -30px -30px 30px rgba(255 , 255  , 255 , 0.9);
+  border-radius: 60% 40% 64% 36% / 34% 36% 64% 66% ;
+}
+
+.water:hover {
+  animation: animate 2s linear infinite alternate;
+}
+
+@keyframes animate {
+  0% {
+    border-radius: 60% 40% 64% 36% / 34% 36% 64% 66% ;
+  }
+  50% {
+    border-radius: 55% 45% 58% 42% / 54% 39% 61% 46% ;
+  }
+  100% {
+    border-radius: 41% 59% 35% 65% / 71% 32% 68% 29%  ;
+  }
+}
