@@ -1,0 +1,45 @@
+$color: #350a5e;
+$size: 200px;
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e1c24;
+}
+
+.circle {
+  position: absolute;
+  width: $size;
+  height: $size;
+  background: red;
+  border-radius: 50%;
+  animation: spin 2s alternate infinite;
+}
+@for $i from 1 to 10 {
+  .circle:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s;
+    background: lighten($color, $i * 10%);
+    width: $size - $i * 20;
+    height: $size - $i * 20;
+  }
+}
+@keyframes spin {
+  0% {
+    border-radius: 50%;
+    transform: rotate(0);
+  }
+  20% {
+    border-radius: 50%;
+    transform: rotate(0);
+  }
+  90% {
+    border-radius: 5%;
+    transform: rotate(90deg);
+  }
+  100% {
+    border-radius: 5%;
+    transform: rotate(90deg);
+  }
+}
