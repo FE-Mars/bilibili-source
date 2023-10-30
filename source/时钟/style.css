@@ -1,0 +1,161 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+:root {
+ --sec-color: red;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #a6bcff;
+}
+
+.clock{
+    width: 350px;
+    height: 350px;
+    margin-top: -10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(clock.png);
+    background-size: cover;
+    border: 5px solid pink;
+    border-radius: 50%;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0  -15px 15px  rgba(255,255,255,0.05),
+    0 15px 15px rgba(0,0,0,0.3),
+    inset 0 15px 15px rgba(0,0,0,0.3);;
+    animation: border-color 10s infinite alternate;
+}
+
+@keyframes border-color {
+    20%{
+        border-color: rgb(255, 103, 166);
+    }
+    40%{
+        border-color: rgb(97, 121, 255);
+    }
+    60%{
+       border-color: rgb(126, 156, 255); 
+    }
+    100%{
+        border-color: rgb(205, 98, 255);
+    }
+}
+
+.clock:before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: orange;
+    border-radius: 50%;
+    z-index: 10000;
+}
+
+.clock .hour,
+.clock .min,
+.clock .sec{
+    position: absolute;
+}
+
+.clock .hour, .hr{
+    width: 160px;
+    height: 160px;
+}
+
+.clock  .min,  .mn
+{
+   width: 190px;
+   height: 190px;
+}
+
+
+.clock  .sec,  .sc
+{
+  width: 230px;
+  height: 230px;
+}
+
+.hr, .mn, .sc{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.hr:before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 80px;
+    background: lightgray;
+}
+
+.mn:before
+{
+  content: ' ' ;
+  position: absolute;
+  width: 4px;
+  height: 90px;
+  background: #fff;
+  z-index: 11;
+  border-radius: 6px 6px 0 0;
+}
+.sc:before
+{
+  content: ' ' ;
+  position: absolute;
+  width: 2px;
+  height: 150px;
+  background: var(--sec-color);
+  z-index: 12;
+  border-radius: 6px 6px 0 0;
+}
+
+.mode{
+    position: absolute;
+    margin-top: 60vh;
+    align-content: center;
+}
+
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.label{
+    width: 50px;
+    height: 26px;
+    background-color: #fff;
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    transform: scale(1.5);
+}
+
+.ball{
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    box-shadow: 0 0 2px black;
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball{
+    transform: translateX(24px);
+}
