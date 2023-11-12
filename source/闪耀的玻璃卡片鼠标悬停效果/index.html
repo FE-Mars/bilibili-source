@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Corner Hover Effects</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+      <div class="card" style="--clr: #0f0;"></div>
+      <div class="card" style="--clr: #ff0;"></div>
+  </div>
+  <script>
+    const cards = document.querySelectorAll('.card')
+    cards.forEach(card => {
+      card.onmousemove = function(e) {
+        const x = e.pageX - card.offsetLeft,
+              y = e.pageY - card.offsetTop
+
+        card.style.setProperty('--x', x + 'px')      
+        card.style.setProperty('--y', y + 'px')      
+      }
+    })
+  </script>
+</body>
+</html>
