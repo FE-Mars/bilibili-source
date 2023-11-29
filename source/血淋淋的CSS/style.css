@@ -1,0 +1,60 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 
+    * filter: blur()： 设置高斯模糊效果
+    * filter: contrast()： 调整对比度
+    * 通过对比度滤镜把高斯模糊的模糊边缘给干掉，利用高斯模糊实现融合效果
+  */
+  filter: blur(3px) contrast(10);
+}
+
+div {
+  position: relative;
+  height: 106px;
+  color: #f00;
+  font-size: 124px;
+  line-height: 1;
+  text-align: center;
+  border-bottom: 10px solid #f00;
+  transform: skewY(5deg);
+}
+div::before, div::after {
+  position: absolute;
+  content: "";
+  bottom: -20px;
+  left: 0;
+  width: 10px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f00;
+  transform: translate(0, 0);
+  animation: move 7.5s ease-in-out infinite;
+}
+div::after {
+  animation: move 7.5s ease-in-out 1s infinite;
+}
+
+@keyframes move {
+  80% {
+    bottom: -30px;
+    left: calc(100% - 20px);
+    transform: translate(0, 0);
+  }
+  90% {
+    left: calc(100% - 20px);
+    transform: translate(0, 3px);
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 20px);
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+}
