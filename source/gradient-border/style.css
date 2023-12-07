@@ -1,0 +1,35 @@
+body{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+div {
+  --angle: 0deg;  
+  width: 100px;
+  aspect-ratio: 1;  
+  border: 5px solid;
+  border-image: linear-gradient(var(--angle), 
+    rgb(255, 0, 0), 
+    rgb(255, 255, 0), 
+    rgb(0, 255, 0), 
+    rgb(0, 255, 255), 
+    rgb(0, 0, 255), 
+    rgb(255, 0, 255)
+  ) 1;
+  animation: 5s rotate linear 
+    infinite forwards;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}

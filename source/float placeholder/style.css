@@ -27,6 +27,8 @@ input{
   pointer-events: none;
 }
 input:focus + .placeholder, 
+input:autofill,
+input:-webkit-autofill,
 input:not(:placeholder-shown)
 + .placeholder{
   top: -10px;
