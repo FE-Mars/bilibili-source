@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #058964, #5493c2);
+}
+
+.main {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 0px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.5s ease-in-out;
+}
+.main:hover {
+  gap: 5px;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+height: 100%;
+  background: linear-gradient(0deg, #03a9f4, #cc39a4, #ffb5d2);
+  border-radius: 10px;
+  box-shadow: inset 0 0 150px #fff,
+  inset 0 0 30px #fff,
+  inset 0 0 200px #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1.7rem;
+  letter-spacing: 0.3rem;
+  font-weight: bold;
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+.main:hover .bg {
+  opacity: 0;
+  z-index: -1;
+}
+.card {
+  width: 60px;
+  aspect-ratio: 1;
+  background: white;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 30px #0001;
+  border-radius: 10px;
+  transition: opacity 0.5s ease-in-out,
+  background 0.9s ease-in-out;
+  opacity: 0;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.main:hover .card {
+  opacity: 1;
+}
+.main .card:hover {
+  transition: background 0.2s ease-in-out;
+}
+
+.card.instagram {
+  color: #cc93a4;
+}
+.card.instagram:hover {
+  background: #cc93a4;
+  color: white;
+}
+.card.twitter {
+  color: #03a9f4;
+}
+.card.twitter:hover {
+  background: #03a9f4;
+  color: white;
+}
+.card.dribbble {
+  color: #ffb5d2;
+}
+.card.dribbble:hover {
+  background: #ffb5d2;
+  color: white;
+}
+.card.codepen {
+  color: black;
+}
+.card.codepen:hover {
+  background: black;
+  color: white;
+}
+.card.linkedin {
+  color: #0077b5;
+}
+.card.linkedin:hover {
+  background: #0077b5;
+  color: white;
+}
+.card.discord {
+  color: #8c9eff;
+}
+.card.discord:hover {
+  background: #8c9eff;
+  color: white;
+}
+.card.github {
+  color: black;
+}
+.card.github:hover {
+  background: black;
+  color: white;
+}
+.card.telegram {
+  color: #29b6f6;
+}
+.card.telegram:hover {
+  background: #29b6f6;
+  color: white;
+}
+.card.reddit {
+  color: #FF5700;
+}
+.card.reddit:hover {
+  background: #FF5700;
+  color: white;
+}
