@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.heart {
+  width: 50px;
+  height: 50px;
+  color: #dc1818;
+  background: radial-gradient(circle at 60% 65%, currentColor 62%, rgba(153, 0, 0, 0) 65%) top left, radial-gradient(circle at 40% 65%, currentcolor 62%, rgba(136, 0, 0, 0) 65%) top right, linear-gradient(to bottom left, currentColor 42%, rgba(136, 102, 102, 0) 43%) bottom left, linear-gradient(to bottom right, currentColor 42%, rgba(0, 0, 0, 0) 43%) bottom right;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.heart::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.4;
+  animation: pulsing 1s infinite;
+}
+
+@keyframes pulsing {
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
