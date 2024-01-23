@@ -1,0 +1,26 @@
+#progress {
+  position: fixed;
+  left: 0; bottom: 0;
+  width: 0%; height: 1px;
+  background-color: aquamarine;
+  animation: grow-progress auto linear;
+  animation-timeline: scroll();
+  z-index: 2;
+}
+
+img {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  width: 15px;
+  height: 15px;
+}
+
+@keyframes grow-progress {
+  from { width: 0%; }
+  to { width: 100% }
+}
+
+.placeholder {
+  height: 1000vh;
+}
